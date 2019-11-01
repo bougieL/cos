@@ -1,0 +1,60 @@
+{
+  "name": "cos",
+  "version": "0.0.0",
+  "author": "Bougie",
+  "bin": {
+    "cos": "./bin/run"
+  },
+  "bugs": "https://github.com/Projects/cos/issues",
+  "dependencies": {
+    "@bougiel/utils": "^1.0.0",
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^2",
+    "chalk": "^2.4.2",
+    "cos-nodejs-sdk-v5": "^2.5.14",
+    "fs-extra": "^8.1.0",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@types/chalk": "^2.2.0",
+    "@types/fs-extra": "^8.0.1",
+    "@types/node": "^10",
+    "globby": "^10",
+    "prettier": "^1.18.2",
+    "ts-node": "^8",
+    "typescript": "^3.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/Projects/cos",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "cos",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "Projects/cos",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "format": "prettier --write src/**/*.* --ignore-path .gitignore",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts"
+}
