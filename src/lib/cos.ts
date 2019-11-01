@@ -6,8 +6,12 @@ export class COS {
     this.cos = new TCOS(config)
   }
   listBuckets() {
-    this.cos.getService((err: any, data: any) => {
-      console.log(err || data)
+    this.cos.getService((error: any, data: any) => {
+      if (error) {
+        console.error(error)
+        return
+      }
+      console.table(data.Buckets)
     })
   }
 }
