@@ -19,7 +19,7 @@ $ npm install -g cos
 $ cos COMMAND
 running command...
 $ cos (-v|--version|version)
-cos/0.0.0 darwin-x64 node-v10.16.0
+cos/0.0.1 darwin-x64 node-v12.2.0
 $ cos --help [COMMAND]
 USAGE
   $ cos COMMAND
@@ -28,42 +28,44 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`cos bucket [CONFIGKEY] [CONFIGVALUE]`](#cos-bucket-configkey-configvalue)
-* [`cos config [CONFIGKEY] [CONFIGVALUE]`](#cos-config-configkey-configvalue)
+* [`cos Bucket [ACTION] [ACTIONVALUE]`](#cos-bucket-action-actionvalue)
+* [`cos Config [CONFIGKEY] [CONFIGVALUE]`](#cos-config-configkey-configvalue)
+* [`cos autocomplete [SHELL]`](#cos-autocomplete-shell)
 * [`cos help [COMMAND]`](#cos-help-command)
+* [`cos update [CHANNEL]`](#cos-update-channel)
 
-## `cos bucket [CONFIGKEY] [CONFIGVALUE]`
+## `cos Bucket [ACTION] [ACTIONVALUE]`
 
-describe the command here
+Bucket actions
 
 ```
 USAGE
-  $ cos bucket [CONFIGKEY] [CONFIGVALUE]
+  $ cos Bucket [ACTION] [ACTIONVALUE]
 
 ARGUMENTS
-  CONFIGKEY    Config key, id or key
-  CONFIGVALUE  Config value
+  ACTION       [default: list] oneof list, create, delete, select
+  ACTIONVALUE  action value
 
 OPTIONS
-  -h, --help  show CLI help
-  -l, --list  List buckets
+  -h, --help           show CLI help
+  -r, --region=region
 
 EXAMPLE
-  $ cos bucket --list
+  $ cos bucket --list ap-chengdu
 ```
 
-_See code: [src/commands/bucket.ts](https://github.com/Projects/cos/blob/v0.0.0/src/commands/bucket.ts)_
+_See code: [src/commands/Bucket.ts](https://github.com/bougieL/cos/blob/v0.0.1/src/commands/Bucket.ts)_
 
-## `cos config [CONFIGKEY] [CONFIGVALUE]`
+## `cos Config [CONFIGKEY] [CONFIGVALUE]`
 
 Configure cos
 
 ```
 USAGE
-  $ cos config [CONFIGKEY] [CONFIGVALUE]
+  $ cos Config [CONFIGKEY] [CONFIGVALUE]
 
 ARGUMENTS
-  CONFIGKEY    Config key, id or key
+  CONFIGKEY    Config key, id, key or app
   CONFIGVALUE  Config value
 
 OPTIONS
@@ -75,7 +77,30 @@ EXAMPLE
   $ cos config --list
 ```
 
-_See code: [src/commands/config.ts](https://github.com/Projects/cos/blob/v0.0.0/src/commands/config.ts)_
+_See code: [src/commands/Config.ts](https://github.com/bougieL/cos/blob/v0.0.1/src/commands/Config.ts)_
+
+## `cos autocomplete [SHELL]`
+
+display autocomplete installation instructions
+
+```
+USAGE
+  $ cos autocomplete [SHELL]
+
+ARGUMENTS
+  SHELL  shell type
+
+OPTIONS
+  -r, --refresh-cache  Refresh cache (ignores displaying instructions)
+
+EXAMPLES
+  $ cos autocomplete
+  $ cos autocomplete bash
+  $ cos autocomplete zsh
+  $ cos autocomplete --refresh-cache
+```
+
+_See code: [@oclif/plugin-autocomplete](https://github.com/oclif/plugin-autocomplete/blob/v0.1.4/src/commands/autocomplete/index.ts)_
 
 ## `cos help [COMMAND]`
 
@@ -93,4 +118,15 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.1/src/commands/help.ts)_
+
+## `cos update [CHANNEL]`
+
+update the cos CLI
+
+```
+USAGE
+  $ cos update [CHANNEL]
+```
+
+_See code: [@oclif/plugin-update](https://github.com/oclif/plugin-update/blob/v1.3.9/src/commands/update.ts)_
 <!-- commandsstop -->

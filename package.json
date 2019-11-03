@@ -1,30 +1,40 @@
 {
   "name": "cos",
-  "version": "0.0.0",
-  "author": "Bougie",
+  "version": "0.0.1",
+  "author": {
+    "name": "Bougie",
+    "email": "liuqi.hb.xiaogan@gmail.com",
+    "url": "https://www.bougieblog.cn"
+  },
   "bin": {
     "cos": "./bin/run"
   },
-  "bugs": "https://github.com/Projects/cos/issues",
+  "bugs": "https://github.com/bougieL/cos/issues",
   "dependencies": {
     "@bougiel/utils": "^1.0.0",
     "@oclif/command": "^1",
     "@oclif/config": "^1",
+    "@oclif/plugin-autocomplete": "^0.1.4",
     "@oclif/plugin-help": "^2",
+    "@oclif/plugin-not-found": "^1.2.3",
+    "@oclif/plugin-update": "^1.3.9",
+    "@oclif/plugin-warn-if-update-available": "^1.7.0",
     "chalk": "^2.4.2",
     "cos-nodejs-sdk-v5": "^2.5.14",
     "fs-extra": "^8.1.0",
+    "node-progress": "^0.1.0",
+    "single-line-log": "^1.1.2",
     "tslib": "^1"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1",
-    "@types/chalk": "^2.2.0",
     "@types/fs-extra": "^8.0.1",
-    "@types/node": "^10",
+    "@types/node": "^12",
+    "@types/single-line-log": "^1.1.0",
     "globby": "^10",
     "prettier": "^1.18.2",
     "ts-node": "^8",
-    "typescript": "^3.3"
+    "typescript": "^3.6"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -35,9 +45,12 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/Projects/cos",
+  "homepage": "https://github.com/bougieL/cos",
   "keywords": [
-    "oclif"
+    "cos",
+    "tencent",
+    "bucket",
+    "object"
   ],
   "license": "MIT",
   "main": "lib/index.js",
@@ -45,10 +58,17 @@
     "commands": "./lib/commands",
     "bin": "cos",
     "plugins": [
-      "@oclif/plugin-help"
+      "@oclif/plugin-help",
+      "@oclif/plugin-autocomplete",
+      "@oclif/plugin-update",
+      "@oclif/plugin-not-found",
+      "@oclif/plugin-warn-if-update-available"
     ]
   },
-  "repository": "Projects/cos",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bougieL/cos.git"
+  },
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
