@@ -6,7 +6,7 @@ export class COSBucket extends COS {
     const getService = promisify(this.cos.getService).bind(this.cos)
     return getService({ Region: region }).catch(console.error)
   }
-  create(bucketName: string, appId: string, region: string = 'ap-beijing') {
+  create(bucketName: string, appId: string, region: string) {
     const putBucket = promisify(this.cos.putBucket).bind(this.cos)
     return putBucket({
       Bucket: `${bucketName}-${appId}`,

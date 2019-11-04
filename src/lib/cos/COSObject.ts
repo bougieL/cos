@@ -26,14 +26,14 @@ export class COSObject extends COS {
       Prefix: prefix
     }).catch(console.error)
   }
-  uploadDir(dirPath: string) {
+  upload(uploadPath: string) {
     const uploadFiles = promisify(this.cos.uploadFiles).bind(this.cos)
-    const dirFilePaths = collectDirFilePaths(dirPath)
+    const dirFilePaths = collectDirFilePaths(uploadPath)
     const files = dirFilePaths.map((filePath: string) =>
       createUploadFileItem(
         this.bucketName,
         this.region,
-        path.relative(dirPath, filePath),
+        path.relative(uploadPath, filePath),
         filePath
       )
     )
@@ -71,6 +71,9 @@ function createUploadFileItem(
 }
 
 function collectDirFilePaths(dirPath: string) {
+  if (fs.statSync(dirPath).isFile()) {
+    return [dirPath]
+  }
   const files: string[] = []
   ;(function recur(parentPath) {
     fs.readdirSync(parentPath).forEach((value) => {
