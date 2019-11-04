@@ -15,11 +15,11 @@ cos
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g cos
+$ npm install -g @bougiel/cos
 $ cos COMMAND
 running command...
 $ cos (-v|--version|version)
-cos/0.0.1 darwin-x64 node-v12.2.0
+@bougiel/cos/0.0.1 darwin-x64 node-v12.2.0
 $ cos --help [COMMAND]
 USAGE
   $ cos COMMAND
@@ -28,56 +28,12 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`cos Bucket [ACTION] [ACTIONVALUE]`](#cos-bucket-action-actionvalue)
-* [`cos Config [CONFIGKEY] [CONFIGVALUE]`](#cos-config-configkey-configvalue)
 * [`cos autocomplete [SHELL]`](#cos-autocomplete-shell)
+* [`cos bucket [ACTION] [ACTIONVALUE]`](#cos-bucket-action-actionvalue)
+* [`cos config [CONFIGKEY] [CONFIGVALUE]`](#cos-config-configkey-configvalue)
 * [`cos help [COMMAND]`](#cos-help-command)
+* [`cos object [ACTION] [ACTIONVALUE]`](#cos-object-action-actionvalue)
 * [`cos update [CHANNEL]`](#cos-update-channel)
-
-## `cos Bucket [ACTION] [ACTIONVALUE]`
-
-Bucket actions
-
-```
-USAGE
-  $ cos Bucket [ACTION] [ACTIONVALUE]
-
-ARGUMENTS
-  ACTION       [default: list] oneof list, create, delete, select
-  ACTIONVALUE  action value
-
-OPTIONS
-  -h, --help           show CLI help
-  -r, --region=region
-
-EXAMPLE
-  $ cos bucket --list ap-chengdu
-```
-
-_See code: [src/commands/Bucket.ts](https://github.com/bougieL/cos/blob/v0.0.1/src/commands/Bucket.ts)_
-
-## `cos Config [CONFIGKEY] [CONFIGVALUE]`
-
-Configure cos
-
-```
-USAGE
-  $ cos Config [CONFIGKEY] [CONFIGVALUE]
-
-ARGUMENTS
-  CONFIGKEY    Config key, id, key or app
-  CONFIGVALUE  Config value
-
-OPTIONS
-  -h, --help  show CLI help
-  -l, --list  List config
-
-EXAMPLE
-  $ cos config secretKey 12345
-  $ cos config --list
-```
-
-_See code: [src/commands/Config.ts](https://github.com/bougieL/cos/blob/v0.0.1/src/commands/Config.ts)_
 
 ## `cos autocomplete [SHELL]`
 
@@ -102,6 +58,51 @@ EXAMPLES
 
 _See code: [@oclif/plugin-autocomplete](https://github.com/oclif/plugin-autocomplete/blob/v0.1.4/src/commands/autocomplete/index.ts)_
 
+## `cos bucket [ACTION] [ACTIONVALUE]`
+
+Bucket actions
+
+```
+USAGE
+  $ cos bucket [ACTION] [ACTIONVALUE]
+
+ARGUMENTS
+  ACTION       [default: list] oneof list, create, delete
+  ACTIONVALUE  action value
+
+OPTIONS
+  -h, --help           show CLI help
+  -r, --region=region  set bucket region
+
+EXAMPLE
+  $ cos bucket --list ap-chengdu
+```
+
+_See code: [src/commands/bucket.ts](https://github.com/bougieL/cos/blob/v0.0.1/src/commands/bucket.ts)_
+
+## `cos config [CONFIGKEY] [CONFIGVALUE]`
+
+Configure cos
+
+```
+USAGE
+  $ cos config [CONFIGKEY] [CONFIGVALUE]
+
+ARGUMENTS
+  CONFIGKEY    Config key, id, key or app
+  CONFIGVALUE  Config value
+
+OPTIONS
+  -h, --help  show CLI help
+  -l, --list  List config
+
+EXAMPLE
+  $ cos config secretKey 12345
+  $ cos config --list
+```
+
+_See code: [src/commands/config.ts](https://github.com/bougieL/cos/blob/v0.0.1/src/commands/config.ts)_
+
 ## `cos help [COMMAND]`
 
 display help for cos
@@ -118,6 +119,27 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.1/src/commands/help.ts)_
+
+## `cos object [ACTION] [ACTIONVALUE]`
+
+Object actions
+
+```
+USAGE
+  $ cos object [ACTION] [ACTIONVALUE]
+
+ARGUMENTS
+  ACTION       [default: list] action name, oneof list
+  ACTIONVALUE  action value
+
+OPTIONS
+  -h, --help  show CLI help
+
+EXAMPLE
+  $ cos object
+```
+
+_See code: [src/commands/object.ts](https://github.com/bougieL/cos/blob/v0.0.1/src/commands/object.ts)_
 
 ## `cos update [CHANNEL]`
 

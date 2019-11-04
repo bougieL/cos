@@ -1,5 +1,12 @@
 import { Command, flags } from '@oclif/command'
-import { setSecretId, setSerectKey, getConfigList } from '../lib'
+import {
+  setSecretId,
+  setSerectKey,
+  setAppId,
+  setBucket,
+  setRegion,
+  getConfigList
+} from '../lib'
 
 export default class Config extends Command {
   static description = 'Configure cos'
@@ -16,7 +23,7 @@ $ cos config --list
   }
 
   static args = [
-    { name: 'configKey', description: 'Config key, id or key' },
+    { name: 'configKey', description: 'Config key, id, key or app' },
     { name: 'configValue', description: 'Config value' }
   ]
 
@@ -30,11 +37,20 @@ $ cos config --list
       )
       return
     }
-    if (args.configKey === 'id') {
+    if (args.configKey === 'SecretId') {
       setSecretId(args.configValue)
     }
-    if (args.configKey === 'key') {
+    if (args.configKey === 'SecretKey') {
       setSerectKey(args.configValue)
+    }
+    if (args.configKey === 'AppId') {
+      setAppId(args.configValue)
+    }
+    if (args.configKey === 'Bucket') {
+      setBucket(args.configValue)
+    }
+    if (args.configKey === 'Region') {
+      setRegion(args.configValue)
     }
   }
 }

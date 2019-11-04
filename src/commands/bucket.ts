@@ -1,29 +1,36 @@
 import { Command, flags } from '@oclif/command'
-import { getCompleteConfig, COS } from '../lib'
+import { getCompleteConfig, getAppIdFromConfig, COSBucket } from '../lib'
 
 export default class Bucket extends Command {
-  static description = 'describe the command here'
+  static description = 'Bucket actions'
 
-  static examples = [
-    `$ cos bucket --list
-`
-  ]
+  static examples = [`$ cos bucket --list ap-chengdu`]
 
   static flags = {
     help: flags.help({ char: 'h' }),
-    list: flags.boolean({ char: 'l', description: 'List buckets' })
+    region: flags.string({ char: 'r', description: 'set bucket region' })
   }
 
   static args = [
-    { name: 'configKey', description: 'Config key, id or key' },
-    { name: 'configValue', description: 'Config value' }
+    {
+      name: 'action',
+      description: 'oneof list, create, delete',
+      default: 'list'
+    },
+    { name: 'actionValue', description: 'action value' }
   ]
 
   async run() {
     const { args, flags } = this.parse(Bucket)
-    const cos = new COS(getCompleteConfig())
-    if (flags.list) {
-      cos.listBuckets()
+    const bucket = new COSBucket(getCompleteConfig())
+    if (args.action === 'list') {
+      bucket.list(flags.region).then((data: any) => console.table(data.Buckets))
+    }
+    if (args.action === 'create') {
+      bucket.create(args.actionValue, getAppIdFromConfig())
+    }
+    if (args.action === 'delete') {
+      bucket.delete(args.actionValue, flags.region)
     }
   }
 }

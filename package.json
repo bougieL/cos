@@ -1,5 +1,5 @@
 {
-  "name": "cos",
+  "name": "@bougiel/cos",
   "version": "0.0.1",
   "author": {
     "name": "Bougie",
@@ -12,7 +12,7 @@
   "bugs": "https://github.com/bougieL/cos/issues",
   "dependencies": {
     "@bougiel/utils": "^1.0.0",
-    "@oclif/command": "^1",
+    "@oclif/command": "1.5.13",
     "@oclif/config": "^1",
     "@oclif/plugin-autocomplete": "^0.1.4",
     "@oclif/plugin-help": "^2",
@@ -22,7 +22,7 @@
     "chalk": "^2.4.2",
     "cos-nodejs-sdk-v5": "^2.5.14",
     "fs-extra": "^8.1.0",
-    "node-progress": "^0.1.0",
+    "progress": "^2.0.3",
     "single-line-log": "^1.1.2",
     "tslib": "^1"
   },
@@ -30,11 +30,12 @@
     "@oclif/dev-cli": "^1",
     "@types/fs-extra": "^8.0.1",
     "@types/node": "^12",
+    "@types/progress": "^2.0.3",
     "@types/single-line-log": "^1.1.0",
     "globby": "^10",
     "prettier": "^1.18.2",
     "ts-node": "^8",
-    "typescript": "^3.6"
+    "typescript": "^3.4.5"
   },
   "engines": {
     "node": ">=8.0.0"
