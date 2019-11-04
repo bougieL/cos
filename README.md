@@ -19,7 +19,7 @@ $ npm install -g @bougiel/cos
 $ cos COMMAND
 running command...
 $ cos (-v|--version|version)
-@bougiel/cos/0.0.1 darwin-x64 node-v12.2.0
+@bougiel/cos/0.0.2 darwin-x64 node-v12.2.0
 $ cos --help [COMMAND]
 USAGE
   $ cos COMMAND
@@ -67,18 +67,19 @@ USAGE
   $ cos bucket [ACTION] [ACTIONVALUE]
 
 ARGUMENTS
-  ACTION       [default: list] oneof list, create, delete
+  ACTION       [default: list] oneof create, delete
   ACTIONVALUE  action value
 
 OPTIONS
   -h, --help           show CLI help
-  -r, --region=region  set bucket region
+  -l, --list
+  -r, --region=region  [default: ap-beijing] set bucket region
 
 EXAMPLE
   $ cos bucket --list ap-chengdu
 ```
 
-_See code: [src/commands/bucket.ts](https://github.com/bougieL/cos/blob/v0.0.1/src/commands/bucket.ts)_
+_See code: [src/commands/bucket.ts](https://github.com/bougieL/cos/blob/v0.0.2/src/commands/bucket.ts)_
 
 ## `cos config [CONFIGKEY] [CONFIGVALUE]`
 
@@ -101,7 +102,7 @@ EXAMPLE
   $ cos config --list
 ```
 
-_See code: [src/commands/config.ts](https://github.com/bougieL/cos/blob/v0.0.1/src/commands/config.ts)_
+_See code: [src/commands/config.ts](https://github.com/bougieL/cos/blob/v0.0.2/src/commands/config.ts)_
 
 ## `cos help [COMMAND]`
 
@@ -129,17 +130,18 @@ USAGE
   $ cos object [ACTION] [ACTIONVALUE]
 
 ARGUMENTS
-  ACTION       [default: list] action name, oneof list
+  ACTION       action name, oneof upload
   ACTIONVALUE  action value
 
 OPTIONS
   -h, --help  show CLI help
+  -l, --list
 
 EXAMPLE
   $ cos object
 ```
 
-_See code: [src/commands/object.ts](https://github.com/bougieL/cos/blob/v0.0.1/src/commands/object.ts)_
+_See code: [src/commands/object.ts](https://github.com/bougieL/cos/blob/v0.0.2/src/commands/object.ts)_
 
 ## `cos update [CHANNEL]`
 
