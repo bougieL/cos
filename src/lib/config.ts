@@ -15,7 +15,11 @@ export const setBucket = (bucket: string) => setConfigItem('Bucket', bucket)
 export const setRegion = (region: string) => setConfigItem('Region', region)
 
 export const getConfigList = () => {
-  return Object.entries(readConfig())
+  const config = readConfig()
+  return Object.keys(config).map((key) => ({
+    key,
+    value: config[key]
+  }))
 }
 
 export const getCompleteConfig = () => {

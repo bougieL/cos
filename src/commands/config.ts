@@ -23,18 +23,18 @@ $ cos config --list
   }
 
   static args = [
-    { name: 'configKey', description: 'config key, one of SecretId, SecretKey, AppId, Bucket, Region' },
+    {
+      name: 'configKey',
+      description:
+        'config key, one of SecretId, SecretKey, AppId, Bucket, Region'
+    },
     { name: 'configValue', description: 'config value' }
   ]
 
   async run() {
     const { args, flags } = this.parse(Config)
     if (flags.list) {
-      this.log(
-        getConfigList()
-          .map(([key, value]) => `${key}: ${value}`)
-          .join('\n')
-      )
+      console.table(getConfigList())
       return
     }
     if (args.configKey === 'SecretId') {
