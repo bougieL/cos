@@ -1,6 +1,6 @@
 {
   "name": "@bougiel/cos",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": {
     "name": "Bougie",
     "email": "liuqi.hb.xiaogan@gmail.com",
@@ -8,6 +8,13 @@
   },
   "bin": {
     "cos": "./bin/run"
+  },
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "format": "prettier --write src/**/*.* --ignore-path .gitignore",
+    "version": "oclif-dev readme && git add README.md"
   },
   "bugs": "https://github.com/bougieL/cos/issues",
   "dependencies": {
@@ -69,13 +76,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/bougieL/cos.git"
-  },
-  "scripts": {
-    "postpack": "rm -f oclif.manifest.json",
-    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
-    "test": "echo NO TESTS",
-    "format": "prettier --write src/**/*.* --ignore-path .gitignore",
-    "version": "oclif-dev readme && git add README.md"
   },
   "types": "lib/index.d.ts"
 }

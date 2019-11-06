@@ -19,7 +19,7 @@ $ npm install -g @bougiel/cos
 $ cos COMMAND
 running command...
 $ cos (-v|--version|version)
-@bougiel/cos/0.0.2 darwin-x64 node-v12.2.0
+@bougiel/cos/0.0.3 darwin-x64 node-v10.16.0
 $ cos --help [COMMAND]
 USAGE
   $ cos COMMAND
@@ -28,81 +28,7 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`cos autocomplete [SHELL]`](#cos-autocomplete-shell)
-* [`cos bucket [ACTION] [ACTIONVALUE]`](#cos-bucket-action-actionvalue)
-* [`cos config [CONFIGKEY] [CONFIGVALUE]`](#cos-config-configkey-configvalue)
 * [`cos help [COMMAND]`](#cos-help-command)
-* [`cos object [ACTION] [ACTIONVALUE]`](#cos-object-action-actionvalue)
-* [`cos update [CHANNEL]`](#cos-update-channel)
-
-## `cos autocomplete [SHELL]`
-
-display autocomplete installation instructions
-
-```
-USAGE
-  $ cos autocomplete [SHELL]
-
-ARGUMENTS
-  SHELL  shell type
-
-OPTIONS
-  -r, --refresh-cache  Refresh cache (ignores displaying instructions)
-
-EXAMPLES
-  $ cos autocomplete
-  $ cos autocomplete bash
-  $ cos autocomplete zsh
-  $ cos autocomplete --refresh-cache
-```
-
-_See code: [@oclif/plugin-autocomplete](https://github.com/oclif/plugin-autocomplete/blob/v0.1.4/src/commands/autocomplete/index.ts)_
-
-## `cos bucket [ACTION] [ACTIONVALUE]`
-
-Bucket actions
-
-```
-USAGE
-  $ cos bucket [ACTION] [ACTIONVALUE]
-
-ARGUMENTS
-  ACTION       [default: list] oneof create, delete
-  ACTIONVALUE  action value
-
-OPTIONS
-  -h, --help           show CLI help
-  -l, --list
-  -r, --region=region  [default: ap-beijing] set bucket region
-
-EXAMPLE
-  $ cos bucket --list ap-chengdu
-```
-
-_See code: [src/commands/bucket.ts](https://github.com/bougieL/cos/blob/v0.0.2/src/commands/bucket.ts)_
-
-## `cos config [CONFIGKEY] [CONFIGVALUE]`
-
-Configure cos
-
-```
-USAGE
-  $ cos config [CONFIGKEY] [CONFIGVALUE]
-
-ARGUMENTS
-  CONFIGKEY    Config key, id, key or app
-  CONFIGVALUE  Config value
-
-OPTIONS
-  -h, --help  show CLI help
-  -l, --list  List config
-
-EXAMPLE
-  $ cos config secretKey 12345
-  $ cos config --list
-```
-
-_See code: [src/commands/config.ts](https://github.com/bougieL/cos/blob/v0.0.2/src/commands/config.ts)_
 
 ## `cos help [COMMAND]`
 
@@ -120,37 +46,4 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.1/src/commands/help.ts)_
-
-## `cos object [ACTION] [ACTIONVALUE]`
-
-Object actions
-
-```
-USAGE
-  $ cos object [ACTION] [ACTIONVALUE]
-
-ARGUMENTS
-  ACTION       action name, oneof upload
-  ACTIONVALUE  action value
-
-OPTIONS
-  -h, --help  show CLI help
-  -l, --list
-
-EXAMPLE
-  $ cos object
-```
-
-_See code: [src/commands/object.ts](https://github.com/bougieL/cos/blob/v0.0.2/src/commands/object.ts)_
-
-## `cos update [CHANNEL]`
-
-update the cos CLI
-
-```
-USAGE
-  $ cos update [CHANNEL]
-```
-
-_See code: [@oclif/plugin-update](https://github.com/oclif/plugin-update/blob/v1.3.9/src/commands/update.ts)_
 <!-- commandsstop -->
