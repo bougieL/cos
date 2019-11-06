@@ -2,7 +2,7 @@ import { Command, flags } from '@oclif/command'
 import { getCompleteConfig, COSObject, getBucketConfig, cwd } from '../lib'
 
 export default class ObjectCli extends Command {
-  static description = 'Object actions'
+  static description = 'object actions'
 
   static examples = [`$ cos object`]
 

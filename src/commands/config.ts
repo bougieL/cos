@@ -12,19 +12,19 @@ export default class Config extends Command {
   static description = 'Configure cos'
 
   static examples = [
-    `$ cos config secretKey 12345
+    `$ cos config SecretKey 12345
 $ cos config --list
 `
   ]
 
   static flags = {
     help: flags.help({ char: 'h' }),
-    list: flags.boolean({ char: 'l', description: 'List config' })
+    list: flags.boolean({ char: 'l', description: 'list config' })
   }
 
   static args = [
-    { name: 'configKey', description: 'Config key, id, key or app' },
-    { name: 'configValue', description: 'Config value' }
+    { name: 'configKey', description: 'config key, one of SecretId, SecretKey, AppId, Bucket, Region' },
+    { name: 'configValue', description: 'config value' }
   ]
 
   async run() {

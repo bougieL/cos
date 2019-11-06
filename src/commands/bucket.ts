@@ -2,7 +2,7 @@ import { Command, flags } from '@oclif/command'
 import { getCompleteConfig, getAppIdFromConfig, COSBucket } from '../lib'
 
 export default class Bucket extends Command {
-  static description = 'Bucket actions'
+  static description = 'bucket actions'
 
   static examples = [`$ cos bucket --list ap-chengdu`]
 
@@ -11,8 +11,7 @@ export default class Bucket extends Command {
     list: flags.boolean({ char: 'l' }),
     region: flags.string({
       char: 'r',
-      description: 'set bucket region',
-      default: 'ap-beijing'
+      description: 'set bucket region'
     })
   }
 
