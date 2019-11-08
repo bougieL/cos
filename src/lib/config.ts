@@ -2,7 +2,7 @@ import * as path from 'path'
 import * as fs from 'fs-extra'
 import chalk from 'chalk'
 
-const configPath = '~/.cosrc.json'
+const configPath = '~/.cosrc'
 
 export const setSerectKey = (key: string) => setConfigItem('SecretKey', key)
 
