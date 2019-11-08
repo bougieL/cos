@@ -19,7 +19,7 @@ $ npm install -g @bougiel/cos
 $ cos COMMAND
 running command...
 $ cos (-v|--version|version)
-@bougiel/cos/0.0.6 darwin-x64 node-v10.16.0
+@bougiel/cos/0.0.7 darwin-x64 node-v10.16.0
 $ cos --help [COMMAND]
 USAGE
   $ cos COMMAND
@@ -79,7 +79,7 @@ EXAMPLE
   $ cos bucket --list ap-chengdu
 ```
 
-_See code: [src/commands/bucket.ts](https://github.com/bougieL/cos/blob/v0.0.6/src/commands/bucket.ts)_
+_See code: [src/commands/bucket.ts](https://github.com/bougieL/cos/blob/v0.0.7/src/commands/bucket.ts)_
 
 ## `cos config [CONFIGKEY] [CONFIGVALUE]`
 
@@ -102,7 +102,7 @@ EXAMPLE
   $ cos config --list
 ```
 
-_See code: [src/commands/config.ts](https://github.com/bougieL/cos/blob/v0.0.6/src/commands/config.ts)_
+_See code: [src/commands/config.ts](https://github.com/bougieL/cos/blob/v0.0.7/src/commands/config.ts)_
 
 ## `cos help [COMMAND]`
 
@@ -141,7 +141,7 @@ EXAMPLE
   $ cos object
 ```
 
-_See code: [src/commands/object.ts](https://github.com/bougieL/cos/blob/v0.0.6/src/commands/object.ts)_
+_See code: [src/commands/object.ts](https://github.com/bougieL/cos/blob/v0.0.7/src/commands/object.ts)_
 
 ## `cos update [CHANNEL]`
 
