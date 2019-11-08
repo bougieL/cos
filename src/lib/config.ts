@@ -1,8 +1,9 @@
 import * as path from 'path'
+import * as os from 'os'
 import * as fs from 'fs-extra'
 import chalk from 'chalk'
 
-const configPath = '~/.cosrc'
+const configPath = path.join(os.homedir(), '.cosrc')
 
 export const setSerectKey = (key: string) => setConfigItem('SecretKey', key)
 
